@@ -6,4 +6,4 @@ Francis turbine modeling and optimization with MATLAB. This approach uses the st
 
 ## Usage
 
-1. Open Matlab and Run francis.m script
+1. Open Matlab and run francis.m script
