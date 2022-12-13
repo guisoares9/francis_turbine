@@ -1,4 +1,9 @@
-function vazao = vazao(d1, d2, r1, r2, w, b)
+function vazao = vazao(x)
+
+    d1 = x(1); d2 = x(2);
+    r1 = x(3); r2 = x(4);
+    w =  x(5); b = x(6);
+
     % 100% CERTO <- KRAVEI
     rho = 1000;
     g = 9.81;
