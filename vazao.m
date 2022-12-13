@@ -20,7 +20,7 @@ function vazao = vazao(x)
     C = @(q, r) q/(2*pi*b*r);
     
     % Funcao da Vazao
-    vazao_fun = @(q) U2^2 - U2*C(q,r2)/tan(beta_2) - U1*k*C(q,r1) + f(q)/2 * 180 * vm(q)^2 - g*h;
+    vazao_fun = @(q) U2^2 - U2*C(q,r2)/tan(beta_2) - U1*k*C(q,r1) - g*h + f(q)/2 * 180 * vm(q)^2;
     vazao_fun2= @(q) vazao_fun(q)^2;
     
     vazao = fminsearch(vazao_fun2, 100);% <--- V_ZERO FIXADO EM 100 m^3/s

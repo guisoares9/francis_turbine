@@ -4,7 +4,8 @@ close all
 global h g k rho mu eps beta_2
 
 % Parametros para otimizar
-param = [3.5988    3.8017    2.0265    6.3352    3.9805    0.8631];
+% 3.5946    3.8065    2.0638    6.3545    3.9569    0.9353
+param = [7.7    8.5    2    7.    4.6    1.6061];
 d1 = param(1); d2 = param(2); r1 = param(3); r2 = param(4); w = param(5); b = param(6);
 
 % Dados
@@ -19,7 +20,7 @@ C = @(q, r) q/(2*pi*b*r);
 f = @(q) friction(rho*vm(q)*d/mu, eps);
 
 % Vazao
-vazao_fun = @(q) U2^2 - U2*C(q,r2)/tan(beta_2) - U1*k*C(q,r1) + f(q)/2 * 180 * vm(q)^2 - g*h;
+vazao_fun = @(q) U2^2 - U2*C(q,r2)/tan(beta_2) - U1*k*C(q,r1) - g*h + f(q)/2 * 180 * vm(q)^2;
 vazao_fun2 = @(q) vazao_fun(q)^2;
 Q = fminsearch(vazao_fun2, 500)
 
@@ -30,5 +31,8 @@ pwr = @(q) (U2^2 - U2*C(q,r2)/tan(beta_2) - U1*Vt1)*q*rho;
 power = pwr(Q)
 
 % Eficiencia
-et = @(q) 100e6/(100e6+q*friction(rho*vm(Q)*d/mu, eps)/2 * 180 * vm(Q)^2);
-ef = et(Q)
+Wtotal = rho * h * g * Q
+Wutil  = rho * Q * (U2^2 - U2*C(Q,r2)/tan(beta_2) - U1*k*C(Q,r1))
+Wloss  = f(Q)/2 * 180 * vm(Q)^2 * rho * Q
+
+rendimento = Wutil/(Wutil+Wloss)s
