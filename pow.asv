@@ -9,8 +9,7 @@ function pwr = pow(x)
     
     U2 = w*r2; U1 = w*r1;
     k = 0.1;
-    beta_2 = 1.3090;
-    rho = 1000;
+    beta_2 = 1.3090; %75° em rad
     q = vazao(d1,d2,r1,r2,w,b);
-    pwr = (U2^2 - U2*q*(tan(beta_2))^-1/(2*pi*r2*b) - U1*(k*q/(2*pi*r1*b)))*q*rho;
+    pwr = U2^2 - U2*q*(tan(beta_2))^-1/(2*pi*r2*b) - U1*(k*q/(2*pi*r1*b));
 end
