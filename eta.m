@@ -6,7 +6,7 @@ function rendimento = eta(x)
 
     rho = 1000; mu = 0.001;
     d = (d1+d2)/2;
-    eps = 0.0003;
+    eps = 0.0006;
     
     q = vazao(x);
     v1 = 4*q/(pi*d1^2);

@@ -7,7 +7,7 @@ function vazao = vazao(x)
     % Dados
     rho = 1000;     g = 9.81; h = 100;
     mu = 0.001;     d = (d1+d2)/2;
-    eps = 0.0003;   k = 0.1;
+    eps = 0.0006;   k = 0.1;
     U2 = w*r2;      U1= w*r1;
     beta_2 = degtorad(75);
     
@@ -24,8 +24,9 @@ function vazao = vazao(x)
     
     % Funcao da Vazao
     vazao_fun = @(q) U2^2 - U2*C(q,r2)/tan(beta_2) - U1*k*C(q,r1) + f(q)/2 * 180 * vm(q)^2 - g*h;
+    vazao_fun2= @(q) vazao_fun(q)^2;
     
-    vazao = fminsearch(vazao_fun, 100);% <--- V_ZERO FIXADO EM 100 m^3/s
+    vazao = fminsearch(vazao_fun2, 100);% <--- V_ZERO FIXADO EM 100 m^3/s
 end
 
 %f = @(q) -w * (r2 * v2(q) - r1 * v1(q)) + friction(rho*vm(q)*d/mu, eps)/2 * 180 * vm(q)^2 - g*h;
