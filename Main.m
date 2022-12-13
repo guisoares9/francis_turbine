@@ -4,13 +4,13 @@ close all
 %       d1      d2      r1      r2          w       b
 v0 = [  1.5     2.9     2       6.065       14.8    .2];
 
-%   EQUACAO DE RESTRICAO: <=
+%   RESTRICAO: <=
 A = [0 0 1 -1 0 0];
 B  = 0;
-%   EQUACAO DE RESTRICAO: ==
+%   RESTRICAO: ==
 Aeq = [];
 Beq  = [];
-%   LIMITES
+%   LIMITES: ??
 LB = [0 0 0 0 0 0];                 % LOWER BOUND
 UB =  [Inf Inf Inf Inf Inf 3];      % UPPER BOUND
 
