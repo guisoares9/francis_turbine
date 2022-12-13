@@ -1,17 +1,15 @@
 clc
 close all
 
-% Iteracao 5 - Bom dia
+global h g k rho mu eps beta_2
 
 % Parametros para otimizar
-% d1 = 1.5; d2 = 2.9; r1 = 2; r2 = 6.065; w = 14.8; b = .2;
-
 param = [1.8018    3.0828    2.1506    6.0391   14.3361    0.2883];
 d1 = param(1); d2 = param(2); r1 = param(3); r2 = param(4); w = param(5); b = param(6);
 
 % Dados
-rho = 1000; g = 9.81; h = 100; mu = 0.001; d = (d1+d2)/2; eps = 0.0006;
-U1 = w*r1; U2 = w*r2; k = 0.1; beta_2 = 1.3090;
+d = (d1+d2)/2;
+U1 = w*r1; U2 = w*r2;
 
 % Velocidades
 v1 = @(q) 4*q/(pi*d1^2); v2 = @(q) 4*q/(pi*d2^2); vm = @(q) mean([v1(q) v2(q)]);
