@@ -1,0 +1,19 @@
+clc
+close all
+
+%       d1      d2      r1      r2          w       b
+v0 = [  1.5     2.9     2       6.065       14.8    .2];
+
+syms d1 d2 r1 r2 w b real
+
+%   EQUACAO DE RESTRICAO: <=
+coef_ineq = [0 0 1 -1 0 0];
+res_ineq  = 0;
+%   EQUACAO DE RESTRICAO: ==
+coef_eq = [];
+res_eq  = [];
+%   LIMITES
+low_bound = [0 0 0 0 0 0];
+up_bound =  [Inf Inf Inf Inf Inf 3];
+
+fmincon(@eta, v0, coef_ineq, res_ineq, coef_ineq, res_ineq, low_bound, up_bound, @restricao)
