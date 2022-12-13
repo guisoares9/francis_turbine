@@ -3,7 +3,10 @@ close all
 
 % Iteracao 4
 
+% Parametros para otimizar
 d1 = 1.5; d2 = 2.9; r1 = 2; r2 = 6.065; w = 14.8; b = .2;
+
+% Dados
 rho = 1000; g = 9.81; h = 100; mu = 0.001; d = (d1+d2)/2; eps = 0.0003;
 U1 = w*r1; U2 = w*r2; k = 0.1; beta_2 = 1.3090;
 

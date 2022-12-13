@@ -2,7 +2,7 @@ function rendimento = eta(x)
 
     d1 = x(1); d2 = x(2);
     r1 = x(3); r2 = x(4);
-    w =  x(5); b = x(6);
+    w  = x(5); b  = x(6);
 
     rho = 1000; mu = 0.001;
     d = (d1+d2)/2;
