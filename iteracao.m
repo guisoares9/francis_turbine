@@ -4,7 +4,7 @@ close all
 global h g k rho mu eps beta_2
 
 % Parametros para otimizar
-param = [1.8018    3.0828    2.1506    6.0391   14.3361    0.2883];
+param = [3.5988    3.8017    2.0265    6.3352    3.9805    0.8631];
 d1 = param(1); d2 = param(2); r1 = param(3); r2 = param(4); w = param(5); b = param(6);
 
 % Dados

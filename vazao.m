@@ -1,5 +1,4 @@
-function vazao = vazao(x)
-    
+function vazao = vazao(x)    
     global h g k rho mu eps beta_2
 
     d1 = x(1); d2 = x(2);
