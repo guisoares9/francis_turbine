@@ -1,6 +1,12 @@
 function vazao = vazao(x)    
-    global h g k rho mu eps beta_2
-
+    % Dados
+    francis = Francis;    
+    h = francis.h; g = francis.g;
+    k = francis.k; rho = francis.rho;
+    mu = francis.mu; eps = francis.eps;
+    LD = francis.LD;
+    beta_2 = francis.beta_2;  
+    
     d1 = x(1); d2 = x(2);
     r1 = x(3); r2 = x(4);
     w  = x(5); b  = x(6);
@@ -20,7 +26,7 @@ function vazao = vazao(x)
     C = @(q, r) q/(2*pi*b*r);
     
     % Funcao da Vazao
-    vazao_fun = @(q) U2^2 - U2*C(q,r2)/tan(beta_2) - U1*k*C(q,r1) - g*h + f(q)/2 * 180 * vm(q)^2;
+    vazao_fun = @(q) U2^2 - U2*C(q,r2)/tan(beta_2) - U1*k*C(q,r1) - g*h + f(q)/2 * LD * vm(q)^2;
     vazao_fun2= @(q) vazao_fun(q)^2;
     
     vazao = fminsearch(vazao_fun2, 100);% <--- V_ZERO FIXADO EM 100 m^3/s

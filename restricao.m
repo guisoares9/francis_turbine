@@ -1,5 +1,11 @@
 function [c, ceq] = restricao(x)    
-    global h g k rho mu eps beta_2
+    % Dados
+    francis = Francis;    
+    h = francis.h; g = francis.g;
+    k = francis.k; rho = francis.rho;
+    mu = francis.mu; eps = francis.eps;
+    LD = francis.LD;
+    beta_2 = francis.beta_2;  
     
     d1 = x(1); d2 = x(2);
     r1 = x(3); r2 = x(4);
@@ -20,7 +26,7 @@ function [c, ceq] = restricao(x)
     C = @(q, r) q/(2*pi*b*r);
     f = @(q) friction(rho*vm(q)*d/mu, eps);
     
-    vazao_fun = U2^2 - U2*C(q,r2)/tan(beta_2) - U1*k*C(q,r1) + f(q)/2 * 180 * vm(q)^2 - g*h;
+    vazao_fun = U2^2 - U2*C(q,r2)/tan(beta_2) - U1*k*C(q,r1) + f(q)/2 * LD * vm(q)^2 - g*h;
     
     ceq = [pow(x)-100e6 vazao_fun];
 end
