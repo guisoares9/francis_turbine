@@ -3,6 +3,6 @@ function [c, ceq] = restricao(x)
     francis = setFrancis(x);       
     francis.q = francis.setVazao;
     
-    c = [];    
-    ceq = [pow(x)-100e6 eqEnergia(x, francis.q)];
+    c = [pow(x)-120e6 80e6-pow(x)]; % 90 < pow < 110
+    ceq = francis.EqEnergia;
 end

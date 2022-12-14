@@ -1,16 +1,8 @@
 clc
 close all
 
-% Global vars
-global h g k rho mu eps beta_2
-rho = 1000;     g = 9.81;
-mu = 0.001;     h = 100;
-eps = 0.00;   k = 0.1;
-beta_2 = degtorad(75);
-
-%       d1      d2         r1       r2       w         b
-v0 = [3.5988    3.8017    2.0265    6.3352    3.9805    0.8631];
-
+v0 = [5     5         3         8                .5];
+% 4.9463    4.9463    3.1623    8.1608    3.4008    1.4947
 %   RESTRICAO: <=
 A = [0 0 1 -1 0 0];
 B  = 0;
@@ -18,7 +10,7 @@ B  = 0;
 Aeq = [];
 Beq  = [];
 %   LIMITES: ??
-LB = [0 0 0 0 0 0];                % LOWER BOUND
+LB = [0 0 0 0 0 .1];                % LOWER BOUND
 UB = [Inf Inf Inf Inf Inf 3];      % UPPER BOUND
 
 fmincon(@eta, v0, A, B, Aeq, Beq, LB, UB, @restricao)

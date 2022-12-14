@@ -48,8 +48,8 @@ classdef Francis
             pwr = (U2^2 - U2*self.C(self.r2)/tan(self.beta_2) - U1*Vt1)*self.q*self.rho;
         end
         % Funcao da Restricao (deve ser 0)
-        function vazao = Vazao(self)
-            eqEnergia
+        function res = EqEnergia(self)
+            res = eqEnergia([self.d1 self.d2 self.r1 self.r2 self.w self.b], self.q);
         end
         
     end
